@@ -1,0 +1,20 @@
+{% if not validator_results.messages %}
+<p>Valid HTML(5). Sweet!
+{% else %}
+<table>
+  <tr>
+    <th>Type</th>
+    <th>Last line</th>
+    <th>Message</th>
+    <th>Extract</th>
+  </tr>
+{% for message in validator_results.messages %}
+<tr>
+  <td>{{ message.subType }}</td>
+  <td>{{ message.lastLine }}</td>
+  <td>{{ message.message }}</td>
+  <td>{{ message.extract }}</td>
+</tr>
+{% endfor %}
+</table>
+{% endif %}
